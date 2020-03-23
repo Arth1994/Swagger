@@ -1,0 +1,58 @@
+swagger: "2.0"
+info:
+ version: "0.0.1"
+ title: Arth' Photo Service
+
+# URL data
+host: api.example.com
+basePath: /photo
+schemes:
+ - https
+# Endpoints
+paths:
+ # Photo albums
+    /album:
+ # Get one or more albums
+          get:
+          # Query parameters
+              parameters:
+              # Starting date
+                - name: start
+                  in: query
+                  required: false
+                  type: string
+              # Ending date
+                - name: end
+                  in: query
+                  required: false
+                  type: string
+
+            # Incomplete response (to finish later)
+              responses:
+            # Response code
+                        200:
+                            description: Successful response
+
+ # Photo album
+    /album/{id}:
+# Get an album
+         get:
+      # Query parameters
+            parameters:
+            # Album id
+                - name: id
+                  in: path
+                  required: true
+                  type: integer
+
+      # Customer level
+                - name: Access-level
+                  in: header
+                  required: false
+                  type: string
+
+            # Incomplete response (to finish later)
+            responses:
+            # Response code
+                    200:
+                        description: Successful response
